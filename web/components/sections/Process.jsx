@@ -7,8 +7,8 @@ import { CodePanel, CodePanelRailTile } from '../ds/Media';
 import { ReportCard, FunnelTable } from '../ds/Data';
 import { us } from '@/lib/content/us';
 
-export function Process() {
-  const { process } = us;
+export function Process({ content = us }) {
+  const { process } = content;
   const [tab, setTab] = useState('Overview');
 
   const rail = (

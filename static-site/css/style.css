@@ -30,6 +30,7 @@ img,svg{display:block}
 .container{width:100%;max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
 
 .section{padding:140px 0 0}
+.section--tight{padding-top:80px}
 .section__head{display:grid;gap:20px;max-width:610px}
 .section__head--center{max-width:700px;margin:0 auto;text-align:center}
 .section__lead{margin:0;max-width:610px;font:var(--fw-regular) var(--fs-body-lg)/var(--lh-body-lg) var(--font-sans);color:var(--text-muted)}
@@ -365,7 +366,7 @@ select.form-control{appearance:none;padding-right:42px;cursor:pointer}
   .process__split--stage2 .process__media{order:2}
 }
 @media (max-width:767px){
-  .section,.hero-sec-pad{padding-top:72px;padding-bottom:0}
+  .section,.section--tight,.hero-sec-pad{padding-top:72px;padding-bottom:0}
   .derisk-wrap{margin-top:72px}
   .hero{padding-top:104px;padding-bottom:64px}
   .scroll-progress{display:none}

@@ -7,9 +7,9 @@ import { Accordion } from '../ds/Accordion';
 import { useModal } from '../SearchModal';
 import { us } from '@/lib/content/us';
 
-export function Faq() {
+export function Faq({ content = us }) {
   const { open } = useModal();
-  const { faq } = us;
+  const { faq } = content;
 
   return (
     <Section id="faq" eyebrow={faq.eyebrow} title={faq.heading} emphasis={faq.emphasis} headingSize="h2sm">

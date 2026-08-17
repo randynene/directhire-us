@@ -19,12 +19,13 @@ Then open http://localhost:3000.
 
 ## Structure
 
-- `app/layout.jsx` — global CSS, `<NavBar>` / `<Footer>`, wraps the page in `ModalProvider`.
-- `app/page.jsx` — composes the nine sections in order.
+- `app/layout.jsx` — global CSS, wraps every route in `ModalProvider` and mounts `<PageAnimations />`. No NavBar/Footer here — those render per-page since each locale has its own copy.
+- `app/page.jsx` — the US route (`/`): NavBar + the nine sections + Footer, using `lib/content/us.js`.
+- `app/uk/page.jsx` — the UK route (`/uk`): the same sections, same components, fed `lib/content/uk.js` instead. This is the second route the handoff README anticipated ("a UK page exists in the same Figma file... a locale-keyed content module makes that a second route rather than a second build").
 - `components/ds/` — the CE Design System primitives (Button, Card, Section, Accordion, forms, etc.), ported from the handoff's `_ds_bundle.js` React source into plain components styled with the CSS in `styles/`.
-- `components/sections/` — one file per page section (Hero, Problem, Explainer, Process, Differentiators, Pricing, Faq, ClosingCta).
+- `components/sections/` — one file per page section (Hero, Problem, Explainer, Process, Differentiators, Pricing, Faq, ClosingCta). Each takes an optional `content` prop (defaults to `us`) so `app/uk/page.jsx` can reuse them unchanged by passing `content={uk}`.
 - `components/SearchModal.jsx` — the "Start a search" modal + `useModal()` context hook used by every CTA.
-- `lib/content/us.js` — every string on the page as data, so a UK variant can reuse the same components with a second content module and a second route.
+- `lib/content/us.js`, `lib/content/uk.js` — every string on each locale's page as data. The UK file also carries `explainer.tight: true`, matching the one structural difference in the UK design source: the "How direct hire works" section gets 80px of top padding there instead of the uniform 140px (see `Section`'s `tight` prop).
 - `lib/animations/usePageAnimations.js` — the full GSAP + ScrollTrigger spec from the handoff README, run once via `<PageAnimations />` in the root layout using `gsap.context()` with cleanup on unmount.
 - `styles/tokens.css`, `styles/components.css` — the design system's tokens and component styles, carried over unchanged from `../static-site/css/`.
 

@@ -7,9 +7,9 @@ import { ShortlistPanel, CandidateCard, AnnotationBadge } from '../ds/Cards';
 import { useModal } from '../SearchModal';
 import { us } from '@/lib/content/us';
 
-export function Hero() {
+export function Hero({ content = us }) {
   const { open } = useModal();
-  const { hero } = us;
+  const { hero } = content;
 
   return (
     <section id="top" className="hero">

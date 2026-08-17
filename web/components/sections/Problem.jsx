@@ -4,8 +4,8 @@ import { JobPostGrid } from '../ds/Media';
 import { FloatingProfileCard } from '../ds/Cards';
 import { us } from '@/lib/content/us';
 
-export function Problem() {
-  const { problem } = us;
+export function Problem({ content = us }) {
+  const { problem } = content;
   return (
     <section className="section">
       <Container>

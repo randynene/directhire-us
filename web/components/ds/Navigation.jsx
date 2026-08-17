@@ -24,12 +24,12 @@ export function NavBar({ brand = 'CloudEmployee', links = [], cta = 'Start a sea
   );
 }
 
-export function Footer({ left, right }) {
+export function Footer({ left, right, rightHref }) {
   return (
     <footer className="footer">
       <div className="footer__inner">
         <span>{left}</span>
-        <span>{right}</span>
+        {rightHref ? <a href={rightHref}>{right}</a> : <span>{right}</span>}
       </div>
     </footer>
   );

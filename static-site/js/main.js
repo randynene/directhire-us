@@ -32,11 +32,19 @@
   var FORM_BODY = modalBody ? modalBody.innerHTML : '';
   var FORM_FOOTER = modalFooter ? modalFooter.innerHTML : '';
 
+  /* Every string here is US copy by default. A page can override before this
+     script loads by setting window.DH_SENT_CHECKS = [...three strings...]
+     (see uk.html for the £-denominated version). */
+  var SENT_CHECKS = window.DH_SENT_CHECKS || [
+    'A senior engineer reads the brief today',
+    '45-minute scoping call before we search',
+    '$3,000 to start, credited in full to the fee',
+  ];
   var SENT_BODY =
     '<ul style="margin:0;padding:0;display:grid;gap:11px">' +
-    '<li class="check-item"><span class="check-item__icon"><svg class="icon" viewBox="0 0 15 15" width="15" height="15" stroke-width="0.938" aria-hidden="true"><path d="M2.5 7.5l3.125 3.125L12.5 3.75"/></svg></span><span class="check-item__text">A senior engineer reads the brief today</span></li>' +
-    '<li class="check-item"><span class="check-item__icon"><svg class="icon" viewBox="0 0 15 15" width="15" height="15" stroke-width="0.938" aria-hidden="true"><path d="M2.5 7.5l3.125 3.125L12.5 3.75"/></svg></span><span class="check-item__text">45-minute scoping call before we search</span></li>' +
-    '<li class="check-item"><span class="check-item__icon"><svg class="icon" viewBox="0 0 15 15" width="15" height="15" stroke-width="0.938" aria-hidden="true"><path d="M2.5 7.5l3.125 3.125L12.5 3.75"/></svg></span><span class="check-item__text">$3,000 to start, credited in full to the fee</span></li>' +
+    SENT_CHECKS.map(function (text) {
+      return '<li class="check-item"><span class="check-item__icon"><svg class="icon" viewBox="0 0 15 15" width="15" height="15" stroke-width="0.938" aria-hidden="true"><path d="M2.5 7.5l3.125 3.125L12.5 3.75"/></svg></span><span class="check-item__text">' + text + '</span></li>';
+    }).join('') +
     '</ul>';
 
   var SENT_FOOTER =

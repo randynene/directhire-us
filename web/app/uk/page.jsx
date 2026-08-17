@@ -7,30 +7,30 @@ import { Differentiators } from '@/components/sections/Differentiators';
 import { Pricing } from '@/components/sections/Pricing';
 import { Faq } from '@/components/sections/Faq';
 import { ClosingCta } from '@/components/sections/ClosingCta';
-import { us } from '@/lib/content/us';
+import { uk } from '@/lib/content/uk';
 
 export const metadata = {
-  title: 'CloudEmployee — Direct hire, United States',
+  title: 'CloudEmployee — Direct hire, United Kingdom',
   description:
     'Permanent hires, on your payroll. Every candidate interviewed by a senior engineer. Two profiles, not two hundred CVs.',
 };
 
-export default function HomePage() {
+export default function UkPage() {
   return (
     <>
-      <NavBar brand={us.nav.brand} links={us.nav.links} cta={us.nav.cta} />
+      <NavBar brand={uk.nav.brand} links={uk.nav.links} cta={uk.nav.cta} />
       <main>
-        <Hero />
-        <Problem />
-        <Explainer />
-        <Process />
-        <DeRiskBand items={us.deRisk} />
-        <Differentiators />
-        <Pricing />
-        <Faq />
-        <ClosingCta />
+        <Hero content={uk} />
+        <Problem content={uk} />
+        <Explainer content={uk} />
+        <Process content={uk} />
+        <DeRiskBand items={uk.deRisk} />
+        <Differentiators content={uk} />
+        <Pricing content={uk} />
+        <Faq content={uk} />
+        <ClosingCta content={uk} />
       </main>
-      <Footer left={us.footer.left} right={us.footer.right} rightHref="/uk" />
+      <Footer left={uk.footer.left} right={uk.footer.right} rightHref="/" />
     </>
   );
 }

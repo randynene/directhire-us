@@ -1,11 +1,9 @@
 import './globals.css';
 import { ModalProvider } from '@/components/SearchModal';
-import { NavBar, Footer } from '@/components/ds/Navigation';
 import { PageAnimations } from '@/components/PageAnimations';
-import { us } from '@/lib/content/us';
 
 export const metadata = {
-  title: 'CloudEmployee — Direct hire, United States',
+  title: 'CloudEmployee — Direct hire',
   description:
     'Permanent hires, on your payroll. Every candidate interviewed by a senior engineer. Two profiles, not two hundred CVs.',
 };
@@ -15,15 +13,15 @@ export const viewport = {
   initialScale: 1,
 };
 
+/* NavBar/Footer render per-page (see app/page.jsx and app/uk/page.jsx) rather
+   than here, since each locale route has its own chrome copy. */
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="page">
         <ModalProvider>
-          <NavBar brand={us.nav.brand} links={us.nav.links} cta={us.nav.cta} />
           <PageAnimations />
-          <main>{children}</main>
-          <Footer left={us.footer.left} right={us.footer.right} />
+          {children}
         </ModalProvider>
       </body>
     </html>

@@ -6,9 +6,9 @@ import { Button } from '../ds/Core';
 import { useModal } from '../SearchModal';
 import { us } from '@/lib/content/us';
 
-export function ClosingCta() {
+export function ClosingCta({ content = us }) {
   const { open } = useModal();
-  const { closing } = us;
+  const { closing } = content;
 
   return (
     <section className="closing">
