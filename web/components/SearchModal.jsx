@@ -1,9 +1,11 @@
 'use client';
 
 import { createContext, useContext, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Modal, Field, Input, Select, Textarea, Checkbox } from './ds/Forms';
 import { Button, CheckItem } from './ds/Core';
 import { us } from '@/lib/content/us';
+import { uk } from '@/lib/content/uk';
 
 const ModalContext = createContext(null);
 
@@ -37,7 +39,12 @@ export function ModalProvider({ children }) {
 }
 
 function SearchModal({ isOpen, sent, updates, onToggleUpdates, onSend, onClose }) {
-  const copy = us.modal;
+  // ModalProvider is mounted once in the root layout, above both locale
+  // routes, so it has no `content` prop to read locale copy from — pick it
+  // up from the current path instead (uk.js has its own £-denominated
+  // sentChecks that must not leak the US modal copy onto the /uk route).
+  const pathname = usePathname();
+  const copy = pathname?.startsWith('/uk') ? uk.modal : us.modal;
 
   const footer = sent ? (
     <Button size="sm" withArrow={false} onClick={onClose}>Close</Button>

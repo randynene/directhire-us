@@ -12,6 +12,7 @@ export function usePageAnimations() {
   useEffect(() => {
     let ctx;
     let cancelled = false;
+    let cleanupRefreshListeners = () => {};
 
     async function run() {
       const gsapModule = await import('gsap');
@@ -206,10 +207,17 @@ export function usePageAnimations() {
           { clipPath: 'inset(0% 0% -12% 0%)', y: 0, duration: 1.1, ease: 'power4.out',
             scrollTrigger: { trigger: cta, start: 'top 88%', toggleActions: 'play none none none' } });
 
-        const refresh = () => ScrollTrigger.refresh();
-        [200, 700, 1500].forEach((t) => setTimeout(refresh, t));
+        const refresh = () => { if (!cancelled) ScrollTrigger.refresh(); };
+        const timeouts = [200, 700, 1500].map((t) => setTimeout(refresh, t));
         window.addEventListener('load', refresh);
+        window.addEventListener('resize', refresh);
         if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
+
+        cleanupRefreshListeners = () => {
+          timeouts.forEach(clearTimeout);
+          window.removeEventListener('load', refresh);
+          window.removeEventListener('resize', refresh);
+        };
       });
     }
 
@@ -217,6 +225,7 @@ export function usePageAnimations() {
 
     return () => {
       cancelled = true;
+      cleanupRefreshListeners();
       if (ctx) ctx.revert();
     };
   }, []);

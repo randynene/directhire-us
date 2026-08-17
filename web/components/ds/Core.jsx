@@ -27,6 +27,17 @@ export function Button({ children, variant = 'primary', size = 'lg', withArrow =
   );
 }
 
+/* Header nav link. Supports an `active` flag so a future scroll-spy can
+   mark the current section via aria-current="page" (see .navlink[aria-current]
+   in styles/components.css). */
+export function NavLink({ href, children, active = false, className = '', ...rest }) {
+  return (
+    <a href={href} className={`navlink ${className}`.trim()} aria-current={active ? 'page' : undefined} {...rest}>
+      {children}
+    </a>
+  );
+}
+
 export function CheckItem({ children, size = 'md', className = '' }) {
   return (
     <li className={`check-item${size === 'sm' ? ' check-item--sm' : ''} ${className}`.trim()}>
@@ -44,7 +55,11 @@ export function Badge({ children }) {
   return <span className="badge">{children}</span>;
 }
 
-export function AnnotationBadge({ children }) {
+/* Used for "Illustrative" / "Video slot — to film" labels. `show` is a real
+   toggle (defaults true) so these can be switched off in one place for
+   launch, per the design handoff's showAnnotations flag. */
+export function AnnotationBadge({ children, show = true }) {
+  if (!show) return null;
   return <span className="annotation-badge">{children}</span>;
 }
 

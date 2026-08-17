@@ -24,7 +24,7 @@ export const us = {
     checks: [
       '2 matched profiles, not 200 CVs',
       'A senior engineer interviews every candidate',
-      '3-month replacement guarantee',
+      '6-month replacement guarantee',
     ],
     shortlist: {
       badge: '2 profiles',

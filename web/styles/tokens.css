@@ -31,9 +31,9 @@
 --navy-560:#32435F;
 
 /* ── Accent ───────────────────────────────────────── */
---lime-500:#D4FF3C;
---lime-a25:rgba(212,255,60,0.25);
---lime-a12:rgba(212,255,60,0.12);
+--lime-500:#FCFF3C;
+--lime-a25:rgba(252,255,60,0.25);
+--lime-a12:rgba(252,255,60,0.12);
 
 /* ── Neutrals / text ramp ─────────────────────────── */
 --white:#FFFFFF;
@@ -86,9 +86,9 @@
 
 /* ── Interactive states ───────────────────────────── */
 --accent-default:var(--lime-500);
---accent-hover:#DFFF6B;
---accent-active:#C2F022;
---accent-disabled:rgba(212,255,60,0.35);
+--accent-hover:#FDFF6B;
+--accent-active:#EFF522;
+--accent-disabled:rgba(252,255,60,0.35);
 --ghost-hover-bg:rgba(255,255,255,0.04);
 --ghost-active-bg:rgba(255,255,255,0.07);
 --border-hover:var(--navy-560);
@@ -131,8 +131,8 @@
 --fs-micro:10.5px;      --lh-micro:16.8px;
 --fs-nano:9px;          --lh-nano:10.8px;
 
---fs-eyebrow:11px;      --lh-eyebrow:17.6px;    --ls-eyebrow:1.76px;
---fs-eyebrow-lg:16px;   --lh-eyebrow-lg:17.6px; --ls-eyebrow-lg:1.76px;
+--fs-eyebrow:11px;      --lh-eyebrow:17.6px;    --ls-eyebrow:1.32px;
+--fs-eyebrow-lg:16px;   --lh-eyebrow-lg:17.6px; --ls-eyebrow-lg:1.32px;
 --fs-label:12px;        --lh-label:13.2px;      --ls-label:1.68px;
 --fs-label-sm:11px;     --lh-label-sm:17.6px;   --ls-label-sm:1.43px;
 --fs-tag:10px;          --lh-tag:16px;          --ls-tag:1px;
@@ -153,7 +153,7 @@
 --space-13:24px;--space-14:26px;--space-15:27px;--space-16:28px;--space-17:29px;--space-18:32px;
 --space-19:35px;--space-20:38px;--space-21:42px;--space-22:52px;--space-23:66px;--space-24:74px;
 --space-section-y:98px;
---space-section-gap:155px;
+--space-section-gap:140px;
 --gap-card:22px;
 --gap-inline:8px;
 --pad-card:29px;
@@ -238,6 +238,6 @@
 @media (max-width:1280px){
   :root{--fs-h1:48px;--lh-h1:53px;--fs-h2:36px;--lh-h2:40px;--fs-display:40px;--lh-display:45px}
 }
-@media (max-width:768px){
+@media (max-width:767px){
   :root{--fs-h1:38px;--lh-h1:42px;--fs-h2:30px;--lh-h2:34px;--fs-h2-sm:28px;--lh-h2-sm:32px;--fs-display:32px;--lh-display:36px;--fs-display-lg:44px;--lh-display-lg:46px;--fs-lead:17px;--lh-lead:27px;--gutter:20px;--pad-card:20px;--pad-card-lg:22px;--space-section-gap:72px}
 }
