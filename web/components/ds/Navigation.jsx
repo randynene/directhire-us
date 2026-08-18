@@ -1,7 +1,7 @@
 'use client';
 
 import { Wordmark } from './Brand';
-import { Button, StatusDot } from './Core';
+import { Button, StatusDot, NavLink } from './Core';
 import { useModal } from '../SearchModal';
 
 export function NavBar({ brand = 'CloudEmployee', links = [], cta = 'Start a search' }) {
@@ -13,7 +13,7 @@ export function NavBar({ brand = 'CloudEmployee', links = [], cta = 'Start a sea
           <Wordmark name={brand} href="#top" />
           <nav aria-label="Main" className="navbar__nav">
             {links.map((l) => (
-              <a key={l.href} href={l.href} className="navlink">{l.label}</a>
+              <NavLink key={l.href} href={l.href} active={l.active}>{l.label}</NavLink>
             ))}
           </nav>
           <Button size="md" onClick={() => open()}>{cta}</Button>
